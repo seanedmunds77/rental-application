@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Rental Application Form - Victoria</title>
+</head>
+<body>
+  <h1>Rental Application Form – Victoria</h1>
+  <p><strong>Rental Provider:</strong> S&amp;K EDMUNDS PTY LTD ATF S&amp;K EDMUNDS SUPERANNUATION</p>
+
+  <form method="post" action="#">
+
+    <!-- 1. Property Details -->
+    <h2>1. Property Details</h2>
+
+    <label>
+      Property Address (including suburb and postcode):<br>
+      <input type="text" name="property_address" required>
+    </label><br><br>
+
+    <label>
+      Proposed Move-In Date:<br>
+      <input type="date" name="proposed_move_in_date" required>
+    </label><br><br>
+
+    <label>
+      Lease Length:<br>
+      <select name="lease_length">
+        <option value="">Please select</option>
+        <option value="12 months">12 months</option>
+        <option value="24 months">24 months</option>
+        <option value="Other">Other</option>
+      </select>
+    </label><br><br>
+
+    <label>
+      Proposed Weekly Rent ($):<br>
+      <input type="number" name="proposed_weekly_rent" min="0" step="1" required>
+    </label><br><br>
+
+    <label>
+      Number of Intended Occupants:<br>
+      <input type="number" name="number_of_occupants" min="1" step="1" required>
+    </label><br><br>
+
+    <hr>
+
+    <!-- 2. Applicant Details -->
+    <h2>2. Applicant Details</h2>
+
+    <label>
+      Full Legal Name:<br>
+      <input type="text" name="applicant_full_name" required>
+    </label><br><br>
+
+    <label>
+      Date of Birth:<br>
+      <input type="date" name="applicant_dob" required>
+    </label><br><br>
+
+    <label>
+      Mobile Number:<br>
+      <input type="tel" name="applicant_mobile" required>
+    </label><br><br>
+
+    <label>
+      Email Address:<br>
+      <input type="email" name="applicant_email" required>
+    </label><br><br>
+
+    <label>
+      Current Residential Address:<br>
+      <textarea name="current_residential_address" rows="3" required></textarea>
+    </label><br><br>
+
+    <label>
+      Reason for leaving current address:<br>
+      <textarea name="reason_leaving_current_address" rows="3"></textarea>
+    </label><br><br>
+
+    <h3>Photo Identification</h3>
+    <p>Please upload a copy of your Driver Licence (front and back) or Passport.</p>
+    <label>
+      Upload Photo ID:<br>
+      <input type="file" name="photo_id" accept=".jpg,.jpeg,.png,.pdf">
+    </label><br><br>
+
+    <hr>
+
+    <!-- 3. Rental History -->
+    <h2>3. Rental History</h2>
+
+    <h3>Current Rental</h3>
+
+    <label>
+      Current Address:<br>
+      <input type="text" name="current_rental_address" required>
+    </label><br><br>
+
+    <label>
+      Current Weekly Rent ($):<br>
+      <input type="number" name="current_weekly_rent" min="0" step="1" required>
+    </label><br><br>
+
+    <label>
+      Start Date at Current Address:<br>
+      <input type="date" name="current_address_start_date">
+    </label><br><br>
+
+    <label>
+      Agent/Landlord Name:<br>
+      <input type="text" name="current_agent_landlord_name">
+    </label><br><br>
+
+    <label>
+      Agent/Landlord Email:<br>
+      <input type="email" name="current_agent_landlord_email">
+    </label><br><br>
+
+    <label>
+      Agent/Landlord Phone:<br>
+      <input type="tel" name="current_agent_landlord_phone">
+    </label><br><br>
+
+    <label>
+      Reason for leaving current rental:<br>
+      <textarea name="reason_leaving_current_rental" rows="3"></textarea>
+    </label><br><br>
+
+    <h3>Previous Rental (if applicable)</h3>
+
+    <label>
+      Previous Address:<br>
+      <input type="text" name="previous_rental_address">
+    </label><br><br>
+
+    <label>
+      Previous Agent/Landlord Name:<br>
+      <input type="text" name="previous_agent_landlord_name">
+    </label><br><br>
+
+    <label>
+      Previous Agent/Landlord Email:<br>
+      <input type="email" name="previous_agent_landlord_email">
+    </label><br><br>
+
+    <label>
+      Previous Agent/Landlord Phone:<br>
+      <input type="tel" name="previous_agent_landlord_phone">
+    </label><br><br>
+
+    <h3>Rental Ledger</h3>
+    <p>
+      Please upload your Rental Ledger from your current or most recent agent.  
+      If you have been renting privately, you may upload bank statements showing rent payments or a statutory declaration.
+    </p>
+    <label>
+      Upload Rental Ledger or equivalent:<br>
+      <input type="file" name="rental_ledger" accept=".pdf,.jpg,.jpeg,.png,.xls,.xlsx,.csv">
+    </label><br><br>
+
+    <hr>
+
+    <!-- 4. Employment & Income -->
+    <h2>4. Employment &amp; Income</h2>
+
+    <label>
+      Employer Name:<br>
+      <input type="text" name="employer_name" required>
+    </label><br><br>
+
+    <label>
+      Employer Address:<br>
+      <input type="text" name="employer_address">
+    </label><br><br>
+
+    <label>
+      Employment Type:<br>
+      <select name="employment_type">
+        <option value="">Please select</option>
+        <option value="Full-Time">Full-Time</option>
+        <option value="Part-Time">Part-Time</option>
+        <option value="Casual">Casual</option>
+        <option value="Contractor">Contractor</option>
+        <option value="Self-employed">Self-employed</option>
+        <option value="Unemployed">Unemployed</option>
+        <option value="Centrelink">Centrelink</option>
+      </select>
+    </label><br><br>
+
+    <label>
+      Job Title:<br>
+      <input type="text" name="job_title" required>
+    </label><br><br>
+
+    <label>
+      Length of Employment (months):<br>
+      <input type="number" name="employment_duration_months" min="0" step="1">
+    </label><br><br>
+
+    <label>
+      Manager/HR Contact Name:<br>
+      <input type="text" name="manager_contact_name">
+    </label><br><br>
+
+    <label>
+      Manager/HR Contact Email:<br>
+      <input type="email" name="manager_contact_email">
+    </label><br><br>
+
+    <label>
+      Manager/HR Contact Phone:<br>
+      <input type="tel" name="manager_contact_phone">
+    </label><br><br>
+
+    <h3>Proof of Income</h3>
+    <p>
+      Please upload your three most recent payslips, or BAS if self-employed, or Centrelink income statement.
+    </p>
+    <label>
+      Upload Income Documents:<br>
+      <input type="file" name="income_documents" accept=".pdf,.jpg,.jpeg,.png,.doc,.docx">
+    </label><br><br>
+
+    <hr>
+
+    <!-- 5. Personal References -->
+    <h2>5. Personal References</h2>
+
+    <h3>Reference 1</h3>
+
+    <label>
+      Name:<br>
+      <input type="text" name="ref1_name" required>
+    </label><br><br>
+
+    <label>
+      Relationship:<br>
+      <input type="text" name="ref1_relationship">
+    </label><br><br>
+
+    <label>
+      Phone:<br>
+      <input type="tel" name="ref1_phone">
+    </label><br><br>
+
+    <label>
+      Email:<br>
+      <input type="email" name="ref1_email">
+    </label><br><br>
+
+    <h3>Reference 2</h3>
+
+    <label>
+      Name:<br>
+      <input type="text" name="ref2_name" required>
+    </label><br><br>
+
+    <label>
+      Relationship:<br>
+      <input type="text" name="ref2_relationship">
+    </label><br><br>
+
+    <label>
+      Phone:<br>
+      <input type="tel" name="ref2_phone">
+    </label><br><br>
+
+    <label>
+      Email:<br>
+      <input type="email" name="ref2_email">
+    </label><br><br>
+
+    <hr>
+
+    <!-- 6. Pets -->
+    <h2>6. Pets</h2>
+
+    <p>Do you intend to keep a pet at the property?</p>
+    <label>
+      <input type="radio" name="have_pets" value="Yes"> Yes
+    </label>
+    <label>
+      <input type="radio" name="have_pets" value="No"> No
+    </label><br><br>
+
+    <label>
+      Pet Type (e.g. dog, cat):<br>
+      <input type="text" name="pet_type">
+    </label><br><br>
+
+    <label>
+      Breed:<br>
+      <input type="text" name="pet_breed">
+    </label><br><br>
+
+    <label>
+      Age:<br>
+      <input type="text" name="pet_age">
+    </label><br><br>
+
+    <label>
+      Size/Weight:<br>
+      <input type="text" name="pet_size">
+    </label><br><br>
+
+    <label>
+      Upload Pet Photo (optional):<br>
+      <input type="file" name="pet_photo" accept=".jpg,.jpeg,.png">
+    </label><br><br>
+
+    <hr>
+
+    <!-- 7. Additional Questions -->
+    <h2>7. Additional Questions</h2>
+
+    <p>Are you a smoker?</p>
+    <label>
+      <input type="radio" name="smoker" value="Yes"> Yes
+    </label>
+    <label>
+      <input type="radio" name="smoker" value="No"> No
+    </label><br><br>
+
+    <p>Do you consent to tenancy database checks (e.g. TICA/NTD)?</p>
+    <label>
+      <input type="radio" name="consent_database_checks" value="Yes" required> Yes
+    </label>
+    <label>
+      <input type="radio" name="consent_database_checks" value="No"> No
+    </label><br><br>
+
+    <p>Have you ever been evicted?</p>
+    <label>
+      <input type="radio" name="ever_evicted" value="Yes"> Yes
+    </label>
+    <label>
+      <input type="radio" name="ever_evicted" value="No"> No
+    </label><br><br>
+
+    <label>
+      If yes, please provide details:<br>
+      <textarea name="eviction_details" rows="3"></textarea>
+    </label><br><br>
+
+    <p>Have you ever been bankrupt?</p>
+    <label>
+      <input type="radio" name="ever_bankrupt" value="Yes"> Yes
+    </label>
+    <label>
+      <input type="radio" name="ever_bankrupt" value="No"> No
+    </label><br><br>
+
+    <label>
+      If yes, please provide details:<br>
+      <textarea name="bankruptcy_details" rows="3"></textarea>
+    </label><br><br>
+
+    <p>Any criminal convictions relevant to tenancy (e.g. arson)?</p>
+    <label>
+      <input type="radio" name="relevant_criminal_convictions" value="Yes"> Yes
+    </label>
+    <label>
+      <input type="radio" name="relevant_criminal_convictions" value="No"> No
+    </label><br><br>
+
+    <label>
+      If yes, please provide details:<br>
+      <textarea name="criminal_conviction_details" rows="3"></textarea>
+    </label><br><br>
+
+    <label>
+      Any maintenance requests or special conditions expected prior to moving in?<br>
+      <textarea name="maintenance_or_special_requests" rows="3"></textarea>
+    </label><br><br>
+
+    <hr>
+
+    <!-- 8. Emergency Contact -->
+    <h2>8. Emergency Contact</h2>
+    <p>This person must not reside at the property.</p>
+
+    <label>
+      Emergency Contact Name:<br>
+      <input type="text" name="emergency_contact_name" required>
+    </label><br><br>
+
+    <label>
+      Relationship:<br>
+      <input type="text" name="emergency_contact_relationship">
+    </label><br><br>
+
+    <label>
+      Phone Number:<br>
+      <input type="tel" name="emergency_contact_phone" required>
+    </label><br><br>
+
+    <label>
+      Email Address:<br>
+      <input type="email" name="emergency_contact_email">
+    </label><br><br>
+
+    <hr>
+
+    <!-- 9. Additional Uploads (Optional) -->
+    <h2>9. Additional Uploads (Optional)</h2>
+
+    <label>
+      Proof of Current Address (utility bill, bank statement, etc.):<br>
+      <input type="file" name="proof_of_address" accept=".pdf,.jpg,.jpeg,.png">
+    </label><br><br>
+
+    <label>
+      Employment Contract (if available):<br>
+      <input type="file" name="employment_contract" accept=".pdf,.doc,.docx">
+    </label><br><br>
+
+    <label>
+      Any Supporting Documents:<br>
+      <input type="file" name="additional_supporting_documents" multiple>
+    </label><br><br>
+
+    <hr>
+
+    <!-- 10. Declarations & Consent -->
+    <h2>10. Declarations &amp; Consent</h2>
+
+    <p>
+      By submitting this application, I declare that:<br>
+      • All information provided is true and correct to the best of my knowledge.<br>
+      • I consent to verification of my employment, income, and rental history.<br>
+      • I consent to tenancy database checks (e.g. TICA, NTD, Equifax).<br>
+      • I understand that this is an application only and does not constitute a residential rental agreement.<br>
+      • I consent to the rental provider storing and using my information solely for the purpose of assessing my tenancy eligibility in accordance with Victorian legislation and privacy requirements.
+    </p>
+
+    <label>
+      Full Name (as signature):<br>
+      <input type="text" name="declaration_full_name" required>
+    </label><br><br>
+
+    <label>
+      Date:<br>
+      <input type="date" name="declaration_date" required>
+    </label><br><br>
+
+    <button type="submit">Submit Application</button>
+
+  </form>
+</body>
+</html>
