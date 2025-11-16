@@ -3,449 +3,741 @@
 <head>
   <meta charset="UTF-8">
   <title>Rental Application Form - Victoria</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    :root {
+      --bg: #f5f5f7;
+      --card-bg: #ffffff;
+      --accent: #1f6feb;
+      --accent-soft: #e3edff;
+      --border: #d0d7de;
+      --text-main: #24292f;
+      --text-muted: #6e7781;
+      --danger: #b91c1c;
+    }
+
+    * {
+      box-sizing: border-box;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background: var(--bg);
+      color: var(--text-main);
+    }
+
+    .page {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 24px 16px 48px;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+
+    .header h1 {
+      margin: 0 0 8px;
+      font-size: 1.8rem;
+    }
+
+    .header p {
+      margin: 4px 0;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 0.8rem;
+      margin-top: 8px;
+    }
+
+    form {
+      background: var(--card-bg);
+      border-radius: 12px;
+      padding: 20px 18px;
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+      border: 1px solid var(--border);
+    }
+
+    fieldset {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px 14px 12px;
+      margin-bottom: 18px;
+    }
+
+    legend {
+      padding: 0 6px;
+      font-weight: 600;
+      color: var(--accent);
+      font-size: 0.98rem;
+    }
+
+    .field-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .field {
+      flex: 1;
+      min-width: 220px;
+      margin-bottom: 10px;
+    }
+
+    label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 500;
+      margin-bottom: 4px;
+      color: var(--text-muted);
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="number"],
+    input[type="date"],
+    select,
+    textarea {
+      width: 100%;
+      padding: 8px 9px;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+      font-size: 0.9rem;
+      transition: border-color 0.15s, box-shadow 0.15s;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 70px;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 2px var(--accent-soft);
+    }
+
+    .hint {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    .radio-group,
+    .checkbox-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-size: 0.9rem;
+      margin-bottom: 8px;
+    }
+
+    .radio-group label,
+    .checkbox-group label {
+      font-weight: 400;
+      color: var(--text-main);
+    }
+
+    input[type="file"] {
+      font-size: 0.85rem;
+    }
+
+    .section-note {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+
+    .declarations {
+      font-size: 0.85rem;
+      color: var(--text-main);
+      line-height: 1.5;
+      background: #f9fafb;
+      border-radius: 8px;
+      padding: 10px 12px;
+      border: 1px solid #e5e7eb;
+      margin-bottom: 12px;
+    }
+
+    .danger {
+      color: var(--danger);
+      font-size: 0.8rem;
+      margin-top: 4px;
+    }
+
+    .actions {
+      margin-top: 10px;
+      text-align: right;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .actions small {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    button[type="submit"] {
+      background: var(--accent);
+      border: none;
+      color: white;
+      padding: 9px 18px;
+      border-radius: 999px;
+      font-size: 0.95rem;
+      font-weight: 500;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      box-shadow: 0 4px 10px rgba(37, 99, 235, 0.35);
+    }
+
+    button[type="submit"]:hover {
+      filter: brightness(1.05);
+    }
+
+    button[type="submit"]:active {
+      transform: translateY(1px);
+      box-shadow: 0 2px 6px rgba(37, 99, 235, 0.3);
+    }
+
+    @media (max-width: 600px) {
+      .page {
+        padding: 16px 10px 32px;
+      }
+      form {
+        padding: 16px 12px;
+      }
+    }
+
+    h4 {
+      margin: 6px 0 4px;
+      font-size: 0.95rem;
+    }
+  </style>
 </head>
 <body>
-  <h1>Rental Application Form – Victoria</h1>
-  <p><strong>Rental Provider:</strong> S&amp;K EDMUNDS PTY LTD ATF S&amp;K EDMUNDS SUPERANNUATION</p>
-
-  <form method="post" action="#">
-
-    <!-- 1. Property Details -->
-    <h2>1. Property Details</h2>
-
-    <label>
-      Property Address (including suburb and postcode):<br>
-      <input type="text" name="property_address" required>
-    </label><br><br>
-
-    <label>
-      Proposed Move-In Date:<br>
-      <input type="date" name="proposed_move_in_date" required>
-    </label><br><br>
-
-    <label>
-      Lease Length:<br>
-      <select name="lease_length">
-        <option value="">Please select</option>
-        <option value="12 months">12 months</option>
-        <option value="24 months">24 months</option>
-        <option value="Other">Other</option>
-      </select>
-    </label><br><br>
-
-    <label>
-      Proposed Weekly Rent ($):<br>
-      <input type="number" name="proposed_weekly_rent" min="0" step="1" required>
-    </label><br><br>
-
-    <label>
-      Number of Intended Occupants:<br>
-      <input type="number" name="number_of_occupants" min="1" step="1" required>
-    </label><br><br>
-
-    <hr>
-
-    <!-- 2. Applicant Details -->
-    <h2>2. Applicant Details</h2>
-
-    <label>
-      Full Legal Name:<br>
-      <input type="text" name="applicant_full_name" required>
-    </label><br><br>
-
-    <label>
-      Date of Birth:<br>
-      <input type="date" name="applicant_dob" required>
-    </label><br><br>
-
-    <label>
-      Mobile Number:<br>
-      <input type="tel" name="applicant_mobile" required>
-    </label><br><br>
-
-    <label>
-      Email Address:<br>
-      <input type="email" name="applicant_email" required>
-    </label><br><br>
-
-    <label>
-      Current Residential Address:<br>
-      <textarea name="current_residential_address" rows="3" required></textarea>
-    </label><br><br>
-
-    <label>
-      Reason for leaving current address:<br>
-      <textarea name="reason_leaving_current_address" rows="3"></textarea>
-    </label><br><br>
-
-    <h3>Photo Identification</h3>
-    <p>Please upload a copy of your Driver Licence (front and back) or Passport.</p>
-    <label>
-      Upload Photo ID:<br>
-      <input type="file" name="photo_id" accept=".jpg,.jpeg,.png,.pdf">
-    </label><br><br>
-
-    <hr>
-
-    <!-- 3. Rental History -->
-    <h2>3. Rental History</h2>
-
-    <h3>Current Rental</h3>
-
-    <label>
-      Current Address:<br>
-      <input type="text" name="current_rental_address" required>
-    </label><br><br>
-
-    <label>
-      Current Weekly Rent ($):<br>
-      <input type="number" name="current_weekly_rent" min="0" step="1" required>
-    </label><br><br>
-
-    <label>
-      Start Date at Current Address:<br>
-      <input type="date" name="current_address_start_date">
-    </label><br><br>
-
-    <label>
-      Agent/Landlord Name:<br>
-      <input type="text" name="current_agent_landlord_name">
-    </label><br><br>
-
-    <label>
-      Agent/Landlord Email:<br>
-      <input type="email" name="current_agent_landlord_email">
-    </label><br><br>
-
-    <label>
-      Agent/Landlord Phone:<br>
-      <input type="tel" name="current_agent_landlord_phone">
-    </label><br><br>
-
-    <label>
-      Reason for leaving current rental:<br>
-      <textarea name="reason_leaving_current_rental" rows="3"></textarea>
-    </label><br><br>
-
-    <h3>Previous Rental (if applicable)</h3>
-
-    <label>
-      Previous Address:<br>
-      <input type="text" name="previous_rental_address">
-    </label><br><br>
-
-    <label>
-      Previous Agent/Landlord Name:<br>
-      <input type="text" name="previous_agent_landlord_name">
-    </label><br><br>
-
-    <label>
-      Previous Agent/Landlord Email:<br>
-      <input type="email" name="previous_agent_landlord_email">
-    </label><br><br>
-
-    <label>
-      Previous Agent/Landlord Phone:<br>
-      <input type="tel" name="previous_agent_landlord_phone">
-    </label><br><br>
-
-    <h3>Rental Ledger</h3>
-    <p>
-      Please upload your Rental Ledger from your current or most recent agent.  
-      If you have been renting privately, you may upload bank statements showing rent payments or a statutory declaration.
-    </p>
-    <label>
-      Upload Rental Ledger or equivalent:<br>
-      <input type="file" name="rental_ledger" accept=".pdf,.jpg,.jpeg,.png,.xls,.xlsx,.csv">
-    </label><br><br>
-
-    <hr>
-
-    <!-- 4. Employment & Income -->
-    <h2>4. Employment &amp; Income</h2>
-
-    <label>
-      Employer Name:<br>
-      <input type="text" name="employer_name" required>
-    </label><br><br>
-
-    <label>
-      Employer Address:<br>
-      <input type="text" name="employer_address">
-    </label><br><br>
-
-    <label>
-      Employment Type:<br>
-      <select name="employment_type">
-        <option value="">Please select</option>
-        <option value="Full-Time">Full-Time</option>
-        <option value="Part-Time">Part-Time</option>
-        <option value="Casual">Casual</option>
-        <option value="Contractor">Contractor</option>
-        <option value="Self-employed">Self-employed</option>
-        <option value="Unemployed">Unemployed</option>
-        <option value="Centrelink">Centrelink</option>
-      </select>
-    </label><br><br>
-
-    <label>
-      Job Title:<br>
-      <input type="text" name="job_title" required>
-    </label><br><br>
-
-    <label>
-      Length of Employment (months):<br>
-      <input type="number" name="employment_duration_months" min="0" step="1">
-    </label><br><br>
-
-    <label>
-      Manager/HR Contact Name:<br>
-      <input type="text" name="manager_contact_name">
-    </label><br><br>
-
-    <label>
-      Manager/HR Contact Email:<br>
-      <input type="email" name="manager_contact_email">
-    </label><br><br>
-
-    <label>
-      Manager/HR Contact Phone:<br>
-      <input type="tel" name="manager_contact_phone">
-    </label><br><br>
-
-    <h3>Proof of Income</h3>
-    <p>
-      Please upload your three most recent payslips, or BAS if self-employed, or Centrelink income statement.
-    </p>
-    <label>
-      Upload Income Documents:<br>
-      <input type="file" name="income_documents" accept=".pdf,.jpg,.jpeg,.png,.doc,.docx">
-    </label><br><br>
-
-    <hr>
-
-    <!-- 5. Personal References -->
-    <h2>5. Personal References</h2>
-
-    <h3>Reference 1</h3>
-
-    <label>
-      Name:<br>
-      <input type="text" name="ref1_name" required>
-    </label><br><br>
-
-    <label>
-      Relationship:<br>
-      <input type="text" name="ref1_relationship">
-    </label><br><br>
-
-    <label>
-      Phone:<br>
-      <input type="tel" name="ref1_phone">
-    </label><br><br>
-
-    <label>
-      Email:<br>
-      <input type="email" name="ref1_email">
-    </label><br><br>
-
-    <h3>Reference 2</h3>
-
-    <label>
-      Name:<br>
-      <input type="text" name="ref2_name" required>
-    </label><br><br>
-
-    <label>
-      Relationship:<br>
-      <input type="text" name="ref2_relationship">
-    </label><br><br>
-
-    <label>
-      Phone:<br>
-      <input type="tel" name="ref2_phone">
-    </label><br><br>
-
-    <label>
-      Email:<br>
-      <input type="email" name="ref2_email">
-    </label><br><br>
-
-    <hr>
-
-    <!-- 6. Pets -->
-    <h2>6. Pets</h2>
-
-    <p>Do you intend to keep a pet at the property?</p>
-    <label>
-      <input type="radio" name="have_pets" value="Yes"> Yes
-    </label>
-    <label>
-      <input type="radio" name="have_pets" value="No"> No
-    </label><br><br>
-
-    <label>
-      Pet Type (e.g. dog, cat):<br>
-      <input type="text" name="pet_type">
-    </label><br><br>
-
-    <label>
-      Breed:<br>
-      <input type="text" name="pet_breed">
-    </label><br><br>
-
-    <label>
-      Age:<br>
-      <input type="text" name="pet_age">
-    </label><br><br>
-
-    <label>
-      Size/Weight:<br>
-      <input type="text" name="pet_size">
-    </label><br><br>
-
-    <label>
-      Upload Pet Photo (optional):<br>
-      <input type="file" name="pet_photo" accept=".jpg,.jpeg,.png">
-    </label><br><br>
-
-    <hr>
-
-    <!-- 7. Additional Questions -->
-    <h2>7. Additional Questions</h2>
-
-    <p>Are you a smoker?</p>
-    <label>
-      <input type="radio" name="smoker" value="Yes"> Yes
-    </label>
-    <label>
-      <input type="radio" name="smoker" value="No"> No
-    </label><br><br>
-
-    <p>Do you consent to tenancy database checks (e.g. TICA/NTD)?</p>
-    <label>
-      <input type="radio" name="consent_database_checks" value="Yes" required> Yes
-    </label>
-    <label>
-      <input type="radio" name="consent_database_checks" value="No"> No
-    </label><br><br>
-
-    <p>Have you ever been evicted?</p>
-    <label>
-      <input type="radio" name="ever_evicted" value="Yes"> Yes
-    </label>
-    <label>
-      <input type="radio" name="ever_evicted" value="No"> No
-    </label><br><br>
-
-    <label>
-      If yes, please provide details:<br>
-      <textarea name="eviction_details" rows="3"></textarea>
-    </label><br><br>
-
-    <p>Have you ever been bankrupt?</p>
-    <label>
-      <input type="radio" name="ever_bankrupt" value="Yes"> Yes
-    </label>
-    <label>
-      <input type="radio" name="ever_bankrupt" value="No"> No
-    </label><br><br>
-
-    <label>
-      If yes, please provide details:<br>
-      <textarea name="bankruptcy_details" rows="3"></textarea>
-    </label><br><br>
-
-    <p>Any criminal convictions relevant to tenancy (e.g. arson)?</p>
-    <label>
-      <input type="radio" name="relevant_criminal_convictions" value="Yes"> Yes
-    </label>
-    <label>
-      <input type="radio" name="relevant_criminal_convictions" value="No"> No
-    </label><br><br>
-
-    <label>
-      If yes, please provide details:<br>
-      <textarea name="criminal_conviction_details" rows="3"></textarea>
-    </label><br><br>
-
-    <label>
-      Any maintenance requests or special conditions expected prior to moving in?<br>
-      <textarea name="maintenance_or_special_requests" rows="3"></textarea>
-    </label><br><br>
-
-    <hr>
-
-    <!-- 8. Emergency Contact -->
-    <h2>8. Emergency Contact</h2>
-    <p>This person must not reside at the property.</p>
-
-    <label>
-      Emergency Contact Name:<br>
-      <input type="text" name="emergency_contact_name" required>
-    </label><br><br>
-
-    <label>
-      Relationship:<br>
-      <input type="text" name="emergency_contact_relationship">
-    </label><br><br>
-
-    <label>
-      Phone Number:<br>
-      <input type="tel" name="emergency_contact_phone" required>
-    </label><br><br>
-
-    <label>
-      Email Address:<br>
-      <input type="email" name="emergency_contact_email">
-    </label><br><br>
-
-    <hr>
-
-    <!-- 9. Additional Uploads (Optional) -->
-    <h2>9. Additional Uploads (Optional)</h2>
-
-    <label>
-      Proof of Current Address (utility bill, bank statement, etc.):<br>
-      <input type="file" name="proof_of_address" accept=".pdf,.jpg,.jpeg,.png">
-    </label><br><br>
-
-    <label>
-      Employment Contract (if available):<br>
-      <input type="file" name="employment_contract" accept=".pdf,.doc,.docx">
-    </label><br><br>
-
-    <label>
-      Any Supporting Documents:<br>
-      <input type="file" name="additional_supporting_documents" multiple>
-    </label><br><br>
-
-    <hr>
-
-    <!-- 10. Declarations & Consent -->
-    <h2>10. Declarations &amp; Consent</h2>
-
-    <p>
-      By submitting this application, I declare that:<br>
-      • All information provided is true and correct to the best of my knowledge.<br>
-      • I consent to verification of my employment, income, and rental history.<br>
-      • I consent to tenancy database checks (e.g. TICA, NTD, Equifax).<br>
-      • I understand that this is an application only and does not constitute a residential rental agreement.<br>
-      • I consent to the rental provider storing and using my information solely for the purpose of assessing my tenancy eligibility in accordance with Victorian legislation and privacy requirements.
-    </p>
-
-    <label>
-      Full Name (as signature):<br>
-      <input type="text" name="declaration_full_name" required>
-    </label><br><br>
-
-    <label>
-      Date:<br>
-      <input type="date" name="declaration_date" required>
-    </label><br><br>
-
-    <button type="submit">Submit Application</button>
-
-  </form>
+  <div class="page">
+    <div class="header">
+      <h1>Rental Application – Victoria</h1>
+      <p><strong>Rental Provider:</strong> S&amp;K EDMUNDS PTY LTD ATF S&amp;K EDMUNDS SUPERANNUATION</p>
+      <p class="badge">Private Rental Application</p>
+      <p class="hint">Please complete all relevant sections and upload supporting documents where requested.</p>
+    </div>
+
+    <!-- FORM START -->
+    <form
+      method="POST"
+      action="https://formspree.io/f/xwpanlwa"
+      enctype="multipart/form-data"
+    >
+      <!-- Formspree helpers -->
+      <input type="hidden" name="_subject" value="New Rental Application Submission">
+      <input type="hidden" name="_template" value="table">
+
+      <!-- 1. Property Details -->
+      <fieldset>
+        <legend>1. Property Details</legend>
+        <div class="field-row">
+          <div class="field">
+            <label for="property_address">Property Address (including suburb and postcode) *</label>
+            <input type="text" id="property_address" name="Property Address" required>
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label for="move_in_date">Proposed Move-In Date *</label>
+            <input type="date" id="move_in_date" name="Proposed Move-In Date" required>
+          </div>
+          <div class="field">
+            <label for="lease_length">Lease Length</label>
+            <select id="lease_length" name="Lease Length">
+              <option value="">Please select</option>
+              <option value="12 months">12 months</option>
+              <option value="24 months">24 months</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label for="weekly_rent">Proposed Weekly Rent ($) *</label>
+            <input type="number" id="weekly_rent" name="Proposed Weekly Rent" min="0" step="1" required>
+          </div>
+          <div class="field">
+            <label for="occupants">Number of Intended Occupants *</label>
+            <input type="number" id="occupants" name="Number of Occupants" min="1" step="1" required>
+          </div>
+        </div>
+      </fieldset>
+
+      <!-- 2. Applicant Details -->
+      <fieldset>
+        <legend>2. Applicant Details</legend>
+        <div class="field-row">
+          <div class="field">
+            <label for="full_name">Full Legal Name *</label>
+            <input type="text" id="full_name" name="Applicant Full Name" required>
+          </div>
+          <div class="field">
+            <label for="dob">Date of Birth *</label>
+            <input type="date" id="dob" name="Date of Birth" required>
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label for="mobile">Mobile Number *</label>
+            <input type="tel" id="mobile" name="Mobile Number" required>
+          </div>
+          <div class="field">
+            <label for="email">Email Address *</label>
+            <input type="email" id="email" name="Email Address" required>
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label for="current_address">Current Residential Address *</label>
+            <textarea id="current_address" name="Current Residential Address" rows="3" required></textarea>
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label for="reason_leaving_current_address">Reason for leaving current address</label>
+            <textarea id="reason_leaving_current_address" name="Reason for Leaving Current Address" rows="3"></textarea>
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label for="photo_id">Photo Identification (Driver Licence or Passport)</label>
+            <input type="file" id="photo_id" name="Photo ID" accept=".jpg,.jpeg,.png,.pdf">
+            <p class="hint">You may upload multiple pages as a single PDF or separate images.</p>
+          </div>
+        </div>
+      </fieldset>
+
+      <!-- 3. Rental History -->
+      <fieldset>
+        <legend>3. Rental History</legend>
+
+        <div class="section-note">Please provide details of your current rental and previous rental (if applicable).</div>
+
+        <h4>Current Rental</h4>
+        <div class="field-row">
+          <div class="field">
+            <label for="current_rental_address">Current Address *</label>
+            <input type="text" id="current_rental_address" name="Current Rental Address" required>
+          </div>
+          <div class="field">
+            <label for="current_rent">Current Weekly Rent ($) *</label>
+            <input type="number" id="current_rent" name="Current Weekly Rent" min="0" step="1" required>
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label for="current_start_date">Start Date at Current Address</label>
+            <input type="date" id="current_start_date" name="Current Address Start Date">
+          </div>
+          <div class="field">
+            <label for="current_agent_landlord_name">Agent/Landlord Name</label>
+            <input type="text" id="current_agent_landlord_name" name="Current Agent/Landlord Name">
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label for="current_agent_email">Agent/Landlord Email</label>
+            <input type="email" id="current_agent_email" name="Current Agent/Landlord Email">
+          </div>
+          <div class="field">
+            <label for="current_agent_phone">Agent/Landlord Phone</label>
+            <input type="tel" id="current_agent_phone" name="Current Agent/Landlord Phone">
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label for="reason_leaving_current_rental">Reason for leaving current rental</label>
+            <textarea id="reason_leaving_current_rental" name="Reason for Leaving Current Rental" rows="3"></textarea>
+          </div>
+        </div>
+
+        <h4>Previous Rental (if applicable)</h4>
+        <div class="field-row">
+          <div class="field">
+            <label for="previous_rental_address">Previous Address</label>
+            <input type="text" id="previous_rental_address" name="Previous Rental Address">
+          </div>
+          <div class="field">
+            <label for="previous_agent_landlord_name">Previous Agent/Landlord Name</label>
+            <input type="text" id="previous_agent_landlord_name" name="Previous Agent/Landlord Name">
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label for="previous_agent_email">Previous Agent/Landlord Email</label>
+            <input type="email" id="previous_agent_email" name="Previous Agent/Landlord Email">
+          </div>
+          <div class="field">
+            <label for="previous_agent_phone">Previous Agent/Landlord Phone</label>
+            <input type="tel" id="previous_agent_phone" name="Previous Agent/Landlord Phone">
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label for="rental_ledger">Rental Ledger or Equivalent</label>
+            <input type="file" id="rental_ledger" name="Rental Ledger" accept=".pdf,.jpg,.jpeg,.png,.xls,.xlsx,.csv">
+            <p class="hint">
+              Upload your rental ledger from your agent. If renting privately, upload bank statements showing rent payments or a statutory declaration.
+            </p>
+          </div>
+        </div>
+      </fieldset>
+
+      <!-- 4. Employment & Income -->
+      <fieldset>
+        <legend>4. Employment &amp; Income</legend>
+
+        <div class="field-row">
+          <div class="field">
+            <label for="employer_name">Employer Name *</label>
+            <input type="text" id="employer_name" name="Employer Name" required>
+          </div>
+          <div class="field">
+            <label for="employer_address">Employer Address</label>
+            <input type="text" id="employer_address" name="Employer Address">
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label for="employment_type">Employment Type</label>
+            <select id="employment_type" name="Employment Type">
+              <option value="">Please select</option>
+              <option value="Full-Time">Full-Time</option>
+              <option value="Part-Time">Part-Time</option>
+              <option value="Casual">Casual</option>
+              <option value="Contractor">Contractor</option>
+              <option value="Self-employed">Self-employed</option>
+              <option value="Unemployed">Unemployed</option>
+              <option value="Centrelink">Centrelink</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="job_title">Job Title *</label>
+            <input type="text" id="job_title" name="Job Title" required>
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label for="employment_months">Length of Employment (months)</label>
+            <input type="number" id="employment_months" name="Length of Employment (months)" min="0" step="1">
+          </div>
+          <div class="field">
+            <label for="manager_contact_name">Manager/HR Contact Name</label>
+            <input type="text" id="manager_contact_name" name="Manager/HR Contact Name">
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label for="manager_contact_email">Manager/HR Contact Email</label>
+            <input type="email" id="manager_contact_email" name="Manager/HR Contact Email">
+          </div>
+          <div class="field">
+            <label for="manager_contact_phone">Manager/HR Contact Phone</label>
+            <input type="tel" id="manager_contact_phone" name="Manager/HR Contact Phone">
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label for="income_documents">Proof of Income</label>
+            <input type="file" id="income_documents" name="Income Documents" accept=".pdf,.jpg,.jpeg,.png,.doc,.docx">
+            <p class="hint">Upload 3 most recent payslips, BAS if self-employed, or Centrelink income statement.</p>
+          </div>
+        </div>
+      </fieldset>
+
+      <!-- 5. Personal References -->
+      <fieldset>
+        <legend>5. Personal References</legend>
+        <div class="section-note">Please provide two non-related personal references.</div>
+
+        <h4>Reference 1</h4>
+        <div class="field-row">
+          <div class="field">
+            <label for="ref1_name">Name *</label>
+            <input type="text" id="ref1_name" name="Reference 1 Name" required>
+          </div>
+          <div class="field">
+            <label for="ref1_relationship">Relationship</label>
+            <input type="text" id="ref1_relationship" name="Reference 1 Relationship">
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label for="ref1_phone">Phone</label>
+            <input type="tel" id="ref1_phone" name="Reference 1 Phone">
+          </div>
+          <div class="field">
+            <label for="ref1_email">Email</label>
+            <input type="email" id="ref1_email" name="Reference 1 Email">
+          </div>
+        </div>
+
+        <h4>Reference 2</h4>
+        <div class="field-row">
+          <div class="field">
+            <label for="ref2_name">Name *</label>
+            <input type="text" id="ref2_name" name="Reference 2 Name" required>
+          </div>
+          <div class="field">
+            <label for="ref2_relationship">Relationship</label>
+            <input type="text" id="ref2_relationship" name="Reference 2 Relationship">
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label for="ref2_phone">Phone</label>
+            <input type="tel" id="ref2_phone" name="Reference 2 Phone">
+          </div>
+          <div class="field">
+            <label for="ref2_email">Email</label>
+            <input type="email" id="ref2_email" name="Reference 2 Email">
+          </div>
+        </div>
+      </fieldset>
+
+      <!-- 6. Pets -->
+      <fieldset>
+        <legend>6. Pets</legend>
+
+        <div class="section-note">Pets must comply with Victorian rental laws and any applicable owners corporation rules.</div>
+
+        <div class="field-row">
+          <div class="field">
+            <label>Do you intend to keep a pet at the property?</label>
+            <div class="radio-group">
+              <label><input type="radio" name="Pets" value="Yes"> Yes</label>
+              <label><input type="radio" name="Pets" value="No"> No</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label for="pet_type">Pet Type (e.g. dog, cat)</label>
+            <input type="text" id="pet_type" name="Pet Type">
+          </div>
+          <div class="field">
+            <label for="pet_breed">Breed</label>
+            <input type="text" id="pet_breed" name="Pet Breed">
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label for="pet_age">Age</label>
+            <input type="text" id="pet_age" name="Pet Age">
+          </div>
+          <div class="field">
+            <label for="pet_size">Size/Weight</label>
+            <input type="text" id="pet_size" name="Pet Size/Weight">
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label for="pet_photo">Pet Photo (optional)</label>
+            <input type="file" id="pet_photo" name="Pet Photo" accept=".jpg,.jpeg,.png">
+          </div>
+        </div>
+      </fieldset>
+
+      <!-- 7. Additional Questions -->
+      <fieldset>
+        <legend>7. Additional Questions</legend>
+
+        <div class="field-row">
+          <div class="field">
+            <label>Are you a smoker?</label>
+            <div class="radio-group">
+              <label><input type="radio" name="Smoker" value="Yes"> Yes</label>
+              <label><input type="radio" name="Smoker" value="No"> No</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label>Do you consent to tenancy database checks (e.g. TICA/NTD)? *</label>
+            <div class="radio-group">
+              <label><input type="radio" name="Consent to Tenancy Database Checks" value="Yes" required> Yes</label>
+              <label><input type="radio" name="Consent to Tenancy Database Checks" value="No"> No</label>
+            </div>
+            <p class="danger">If you do not consent, your application may not be able to be processed.</p>
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label>Have you ever been evicted?</label>
+            <div class="radio-group">
+              <label><input type="radio" name="Ever Evicted" value="Yes"> Yes</label>
+              <label><input type="radio" name="Ever Evicted" value="No"> No</label>
+            </div>
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label for="eviction_details">If yes, please provide details</label>
+            <textarea id="eviction_details" name="Eviction Details" rows="3"></textarea>
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label>Have you ever been bankrupt?</label>
+            <div class="radio-group">
+              <label><input type="radio" name="Ever Bankrupt" value="Yes"> Yes</label>
+              <label><input type="radio" name="Ever Bankrupt" value="No"> No</label>
+            </div>
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label for="bankruptcy_details">If yes, please provide details</label>
+            <textarea id="bankruptcy_details" name="Bankruptcy Details" rows="3"></textarea>
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label>Any criminal convictions relevant to tenancy (e.g. arson)?</label>
+            <div class="radio-group">
+              <label><input type="radio" name="Relevant Criminal Convictions" value="Yes"> Yes</label>
+              <label><input type="radio" name="Relevant Criminal Convictions" value="No"> No</label>
+            </div>
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label for="criminal_details">If yes, please provide details</label>
+            <textarea id="criminal_details" name="Criminal Conviction Details" rows="3"></textarea>
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label for="maintenance_requests">Any maintenance requests or special conditions expected prior to moving in?</label>
+            <textarea id="maintenance_requests" name="Maintenance or Special Requests" rows="3"></textarea>
+          </div>
+        </div>
+      </fieldset>
+
+      <!-- 8. Emergency Contact -->
+      <fieldset>
+        <legend>8. Emergency Contact</legend>
+        <div class="section-note">This person must not reside at the property.</div>
+
+        <div class="field-row">
+          <div class="field">
+            <label for="emergency_name">Emergency Contact Name *</label>
+            <input type="text" id="emergency_name" name="Emergency Contact Name" required>
+          </div>
+          <div class="field">
+            <label for="emergency_relationship">Relationship</label>
+            <input type="text" id="emergency_relationship" name="Emergency Contact Relationship">
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label for="emergency_phone">Phone Number *</label>
+            <input type="tel" id="emergency_phone" name="Emergency Contact Phone" required>
+          </div>
+          <div class="field">
+            <label for="emergency_email">Email Address</label>
+            <input type="email" id="emergency_email" name="Emergency Contact Email">
+          </div>
+        </div>
+      </fieldset>
+
+      <!-- 9. Additional Uploads -->
+      <fieldset>
+        <legend>9. Additional Uploads (Optional)</legend>
+        <div class="field-row">
+          <div class="field">
+            <label for="proof_of_address">Proof of Current Address (utility bill, bank statement, etc.)</label>
+            <input type="file" id="proof_of_address" name="Proof of Address" accept=".pdf,.jpg,.jpeg,.png">
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label for="employment_contract">Employment Contract (if available)</label>
+            <input type="file" id="employment_contract" name="Employment Contract" accept=".pdf,.doc,.docx">
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label for="additional_supporting_documents">Any Supporting Documents</label>
+            <input type="file" id="additional_supporting_documents" name="Additional Supporting Documents" multiple>
+          </div>
+        </div>
+      </fieldset>
+
+      <!-- 10. Declarations & Consent -->
+      <fieldset>
+        <legend>10. Declarations &amp; Consent</legend>
+
+        <div class="declarations">
+          <p>By submitting this application, I declare that:</p>
+          <ul>
+            <li>All information provided is true and correct to the best of my knowledge.</li>
+            <li>I consent to verification of my employment, income, and rental history.</li>
+            <li>I consent to tenancy database checks (e.g. TICA, NTD, Equifax).</li>
+            <li>I understand that this is an application only and does not constitute a residential rental agreement.</li>
+            <li>
+              I consent to the rental provider storing and using my information solely for the purpose of assessing my tenancy eligibility, in accordance with Victorian legislation and privacy requirements.
+            </li>
+          </ul>
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label for="declaration_full_name">Full Name (as signature) *</label>
+            <input type="text" id="declaration_full_name" name="Declaration Full Name" required>
+          </div>
+          <div class="field">
+            <label for="declaration_date">Date *</label>
+            <input type="date" id="declaration_date" name="Declaration Date" required>
+          </div>
+        </div>
+      </fieldset>
+
+      <div class="actions">
+        <small>By clicking submit, you confirm you have read and understood the above declarations.</small>
+        <button type="submit">
+          Submit Application
+          <span aria-hidden="true">➜</span>
+        </button>
+      </div>
+    </form>
+    <!-- FORM END -->
+  </div>
 </body>
 </html>
